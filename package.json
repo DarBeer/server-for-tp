@@ -3,6 +3,9 @@
     "version": "1.0.0",
     "license": "MIT",
     "description": "server for tech park",
+    "scripts": {
+        "start": "nodemon ./index.js"
+      },
     "dependencies": {
         "body-parser": "^1.18.0",
         "cors": "^2.8.4",
