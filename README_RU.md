@@ -10,7 +10,7 @@ module.exports = mongodbKey;
     - `npm install -g nodemon` - nodemon будет установлен глобально на ваш системный путь
     - `npm install --save-dev nodemon` - как зависимость для разработки
 ## Список команд
-* `npm start` - запуск сервреа
+* `npm start` - запуск сервера
 ```json
 "scripts": {
         "start": "nodemon ./index.js"
