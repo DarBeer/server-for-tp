@@ -7,6 +7,7 @@ const express = require('express'),
     //index = require('./routes/index'),
     images = require('./routes/images'),
     articles = require('./routes/articles'),
+    users = require('./routes/users'),
     port = process.env.PORT || 3000,
     app = express();
 
@@ -37,6 +38,7 @@ app.use(cors());
 //app.use('/', index);
 app.use('/data/images', images);
 app.use('/data/articles', articles);
+app.use('/data/users', users)
 
 // Listen to port
 app.listen(port, function(){
