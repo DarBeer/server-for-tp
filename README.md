@@ -13,6 +13,6 @@ module.exports = mongodbKey;
 * `npm start` - start server
 ```json
 "scripts": {
-        "start": "nodemon ./index.js"
+        "start": "nodemon ./app.js"
       },
 ```
