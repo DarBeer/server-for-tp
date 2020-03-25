@@ -1,6 +1,6 @@
 const express = require('express');
 const imageRoutes = express.Router();
-const Image = require('../models/images');
+const Image = require('../../models/images');
 const multer  = require('multer');
 
 // GET images

@@ -1,6 +1,6 @@
 const express = require('express');
 const articleRoutes = express.Router();
-const Article = require('../models/articles');
+const Article = require('../../models/articles');
 const multer  = require('multer');
 
 // GET articles
