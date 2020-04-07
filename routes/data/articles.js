@@ -5,17 +5,17 @@ const multer  = require('multer');
 
 // GET articles
 articleRoutes.route('/').get((req, res) => {
-    Article.find((err, articles) => {
-        if (err) {
-            res.json(err);
+    Article.find({}).sort({date: -1}).exec(function(err, articles) { 
+        if (err) { 
+            res.json(err) 
         } else {
-            res.json(articles);
-        }}
-    );
+            res.json(articles)
+        }
+     });
 });
 
 // GET article by id
-articleRoutes.route('/:id').get((req, res) => {
+articleRoutes.route('/get-one/:id').get((req, res) => {
     Article.findById({_id: req.params.id}, (err, article) => {
         if (err) {
             res.json(err);
@@ -25,16 +25,16 @@ articleRoutes.route('/:id').get((req, res) => {
     );
 });
 
-// // GET article by last
-// articleRoutes.route('/last').get((req, res) => {
-//     Article.findOne({},{},{ sort: {'created_at': -1}}, (err, article) => {
-//         if (err) {
-//             res.json(err);
-//         } else {
-//             res.json(article);
-//         }}
-//     );
-// });
+// GET article by last
+articleRoutes.route('/last').get((req, res) => {
+    Article.find({}).sort({date: -1}).limit(3).exec(function(err, articles) { 
+        if (err) { 
+            res.json(err) 
+        } else {
+            res.json(articles)
+        }
+     });
+});
 
 // ADD article data
 articleRoutes.route('/add').post((req, res) => {
