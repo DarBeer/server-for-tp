@@ -52,7 +52,7 @@ const upload = multer({
     storage: storage
 }).single('serviceImage'); // input name attr
 
-serviceRoutes.route('/upload/service').post((req, res) => {
+serviceRoutes.route('/upload').post((req, res) => {
     upload(req,res,(err) => {
         console.log(req.file);
         if(err){

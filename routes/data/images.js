@@ -30,7 +30,7 @@ imageRoutes.route('/add').post((req, res) => {
 // UPLOAD image
 const storage = multer.diskStorage({ // Multer settings
     destination: function (req, file, cb) { // folder for image
-        cb(null, './src/assets/img/gallery/');
+        cb(null, './upload/atricle');
     },
     filename: function (req, file, cb) { // save original name of image
         cb(null, file.originalname);
