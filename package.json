@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "license": "MIT",
     "description": "server for tech park",
+    "main": "app.js",
     "scripts": {
         "start": "nodemon ./app.js",
         "test": "mocha --require babel-register test/*.js --exit"

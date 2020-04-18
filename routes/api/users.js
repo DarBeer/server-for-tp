@@ -82,4 +82,26 @@ router.get('/current', auth.required, (req, res, next) => {
     });
 });
 
+// get all
+router.get('/', (req, res) => {
+  Users.find({}).exec(function(err, users) { 
+      if (err) { 
+          res.json(err) 
+      } else {
+          res.json(users)
+      }
+   });
+  });
+
+
+router.get('/delete/:id',(req, res) => {
+  Users.findByIdAndRemove({_id: req.params.id}, (err, user) => {
+      if (err) {
+          res.json(err);
+      } else {
+          res.json(user);
+      }}
+  );
+});
+
 module.exports = router;

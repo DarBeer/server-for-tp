@@ -18,6 +18,10 @@ const isProduction = process.env.NODE_ENV === 'production';
 //Initiate our app
 const app = express();
 
+
+console.log(__dirname)
+app.use('/uploads',express.static(__dirname + "/uploads"));
+
 //Configure our app
 app.use(cors());
 app.use(require('morgan')('dev'));
@@ -36,32 +40,32 @@ mongoose.set('debug', true);
 
 //Models & routers
 require('./models/Users');
-require('./config/passport');
+//require('./config/passport');
 app.use(require('./routes'));
 
 //Error handlers & middlewares
-if(!isProduction) {
-  app.use((err, req, res) => {
-    res.status(err.status || 500);
+// if(!isProduction) {
+//   app.use((err, req, res) => {
+//     res.status(err.status || 500);
 
-    res.json({
-      errors: {
-        message: err.message,
-        error: err,
-      },
-    });
-  });
-}
+//     res.json({
+//       errors: {
+//         message: err.message,
+//         error: err,
+//       },
+//     });
+//   });
+// }
 
-app.use((err, req, res) => {
-  res.status(err.status || 500);
+// app.use((err, req, res) => {
+//   res.status(err.status || 500);
 
-  res.json({
-    errors: {
-      message: err.message,
-      error: {},
-    },
-  });
-});
+//   res.json({
+//     errors: {
+//       message: err.message,
+//       error: {},
+//     },
+//   });
+// });
 
 app.listen(PORT, () => console.log('Server running on http://localhost:'+ PORT+'/'));
