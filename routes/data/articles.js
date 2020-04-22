@@ -52,7 +52,7 @@ articleRoutes.route('/add').post((req, res) => {
 // UPLOAD image
 const storage = multer.diskStorage({ // Multer settings
     destination: function (req, file, cb) { // folder for image
-        cb(null, './uploads/');
+        cb(null, './uploads/article');
     },
     filename: function (req, file, cb) { // save original name of article
         cb(null, file.originalname);
