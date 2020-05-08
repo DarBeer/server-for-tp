@@ -39,7 +39,7 @@ mongoose.connect(mongodbKey, { useNewUrlParser: true, useUnifiedTopology: true})
 mongoose.set('debug', true);
 
 //Models & routers
-require('./models/Users');
+//require('./models/Users');
 //require('./config/passport');
 app.use(require('./routes'));
 
