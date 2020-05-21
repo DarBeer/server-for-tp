@@ -6,7 +6,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const errorHandler = require('errorhandler');
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const mongodbKey = require('./keys');
 
 //Configure mongoose's promise to global promise
