@@ -67,10 +67,10 @@ articleRoutes.route('/upload').post((req, res) => {
     upload(req,res,(err) => {
         console.log(req.file);
         if(err){
-            res.json({msg: 'Failed to add article file to gallery'});
+            res.status(400).json({msg: 'Failed to add article file to gallery'});
             return;
         }
-        res.json({msg: 'Article file added to gallery'});
+        res.status(200).json({msg: 'Article file added to gallery'});
     });
 });
 
