@@ -65,10 +65,25 @@ serviceRoutes.route('/upload').post((req, res) => {
 
 // EDIT Service
 serviceRoutes.route('/edit/:id').get((req, res) => {
+    if(!req.body) return res.sendStatus(400);
     let id = req.params.id;
-    Service.findById(id, (err, service) => {
-        res.json(service)
+    let imgUrl = req.body.imgUrl;
+    let heading = req.body.heading;
+    let shortDescription = req.body.shortDescription;
+    let description = req.body.description;
+    let newService = { 
+        heading: heading,
+        shortDescription: shortDescription,
+        description: description,
+        imgUrl: imgUrl
+    }
+
+    Service.findByIdAndUpdate({ _id: id}, newService, {new: true}, (err, service) => {
+        if(err) return console.log(err);
+        
+        res.status(200).json(service);
     })
+
 });
 
 // UPDATE Service
@@ -84,7 +99,7 @@ serviceRoutes.route('/update/:id').post((req, res) => {
 
             service.save()
                 .then(
-                    service => res.json(service)
+                    service => res.status(200).json(service)
                 )
                 .catch(
                     err => res.status(400).send(err)

@@ -7,7 +7,10 @@ const Article = new ArticleSchema({
     description: String,
     shortDescription: String,
     urlImage: String,
-    date: String
+    date: String,
+    // imagesForDescription: [{
+    //     urlImage: String
+    // }]
 },{
     collection: 'articles'
 });

@@ -6,7 +6,7 @@ const Service = new ServiceSchema({
     imgUrl: String,
     heading: String,
     shortDescription: String,
-    description: String
+    description: String,
 },{
     collection: 'services'
 });
