@@ -64,7 +64,7 @@ serviceRoutes.route('/upload').post((req, res) => {
 });
 
 // EDIT Service
-serviceRoutes.route('/edit/:id').get((req, res) => {
+serviceRoutes.route('/edit/:id').post((req, res) => {
     if(!req.body) return res.sendStatus(400);
     let id = req.params.id;
     let imgUrl = req.body.imgUrl;
@@ -80,7 +80,7 @@ serviceRoutes.route('/edit/:id').get((req, res) => {
 
     Service.findByIdAndUpdate({ _id: id}, newService, {new: true}, (err, service) => {
         if(err) return console.log(err);
-        
+
         res.status(200).json(service);
     })
 
